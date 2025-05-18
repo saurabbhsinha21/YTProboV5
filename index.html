@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Probo YT Update Per Second</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Probo YT Per Second</h1>
+
+    <label>Video ID:</label>
+    <input type="text" id="videoId" placeholder="Enter YouTube Video ID">
+
+    <label>Target Views:</label>
+    <input type="number" id="targetViews" placeholder="Enter Target Views">
+
+    <label>Target Time:</label>
+    <input type="datetime-local" id="targetTime">
+
+    <label>First Spike Time:</label>
+    <input type="datetime-local" id="firstSpikeTime" step="1">
+
+    <label>Spike Interval (minutes):</label>
+    <input type="number" id="spikeInterval" placeholder="e.g. 5">
+
+    <button onclick="startTracking()">Start Tracking</button>
+
+    <div class="stats">
+      <table id="viewStatsTable">
+        <thead>
+          <tr>
+            <th>Time Range</th>
+            <th>Total Views</th>
+            <th>Views/Min</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Last 5 Min</td><td id="last5Min">-</td><td id="rate5Min">-</td></tr>
+          <tr><td>Last 10 Min</td><td id="last10Min">-</td><td id="rate10Min">-</td></tr>
+          <tr><td>Last 15 Min</td><td id="last15Min">-</td><td id="rate15Min">-</td></tr>
+          <tr><td>Last 20 Min</td><td id="last20Min">-</td><td id="rate20Min">-</td></tr>
+          <tr><td>Last 25 Min</td><td id="last25Min">-</td><td id="rate25Min">-</td></tr>
+          <tr><td>Last 30 Min</td><td id="last30Min">-</td><td id="rate30Min">-</td></tr>
+        </tbody>
+      </table>
+
+      <table id="projectionTable">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Live View Count</td><td id="liveViews">-</td></tr>
+          <tr><td>Avg Per Min (15 Min)</td><td id="avg15Min">-</td></tr>
+          <tr><td>Required Rate (Per Min)</td><td id="requiredRate">-</td></tr>
+          <tr><td>Required Views (Next 5 Mins)</td><td id="requiredNext5">-</td></tr>
+          <tr><td>Views Left</td><td id="viewsLeft" class="neutral">-</td></tr>
+          <tr><td>Projected Views</td><td id="projectedViews">-</td></tr>
+          <tr><td>Will Target Be Met?</td><td id="forecast">-</td></tr>
+          <tr><td>Time Left</td><td id="timeLeft">-</td></tr>
+        </tbody>
+      </table>
+
+      <p>Upcoming Spike Times & Required Views:</p>
+      <ul id="spikeList"></ul>
+    </div>
+
+    <!-- 🟢 Risk Meter Bar -->
+    <div id="riskMeterContainer">
+      <label>Risk Meter:</label>
+      <div id="riskMeterBar">
+        <div id="riskLevel"></div>
+      </div>
+      <p id="riskLabel" style="text-align: center; font-weight: bold; margin-top: 5px;"></p>
+    </div>
+
+    <canvas id="viewChart" height="100"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
