@@ -15,7 +15,8 @@ let apiKeys = [
   "AIzaSyBvVpO0WJB97BNO91RtqTIolLNmV66Qqt8",
   "AIzaSyBT5aGU-3R-jpP4HrGbvX4HBg0IB7IyvIQ",
   "AIzaSyBPbjeqqO6-JicHBUb0OWEubTujbXJtUV8",
-  "AIzaSyDgFJ-2KbTEtO3aCIh6K_aw5pJarl_ht0Y"
+  "AIzaSyDgFJ-2KbTEtO3aCIh6K_aw5pJarl_ht0Y",
+  "AIzaSyDFplTm2sR5hRiHvKVkrVxPgERErZrxS7Y"
 ];
 let currentKeyIndex = 0;
 let apiKey = apiKeys[currentKeyIndex];
